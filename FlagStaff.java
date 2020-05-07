@@ -37,37 +37,54 @@ public class FlagStaff{
     // position of the base of the flag staff
     // position of the flag (eg, the position of the bottom of the flag)
     // position of the ground
-    /*# YOUR CODE HERE */
+    
+    //Flag Staff Fields
+    private double flagStaffBase;
+    private double flagStaffHeight = 300;
+    private double flagStaffXPosition;
+    
+    //Flag Fields
+    private double flagHeight = 30;
+    private double flagWidth = 30;
+    
+    
 
     /** Constructor:
      * Parameters: the position of the base of the flag staff
      * Initialises the fields, but does not draw the flag.
      */
-    /*# YOUR CODE HERE */
+    public FlagStaff(double x, double base){
+        this.flagStaffXPosition = x;
+        this.flagStaffBase = base;
+    }
 
     /** redraw method:
      * Draws the flagstaff (a line) and the flag (a blue rectangle)*/
-    /*# YOUR CODE HERE */     
+    private void redraw(){
+    }
 
     /** raise method:
      * Parameter:  amount to raise the flag
      * Changes the field, but does not let it go over the top of the flagstaff.
      * Does not redraw the flag.
      */
-    /*# YOUR CODE HERE */
-
+    private void raise(double amount){
+    }  
+    
     /** lower method:
      * Parameter:  amount to lower the flag
      * Changes the field, but does not let it go below the bottom of the flagstaff.
      * Does not redraw the flag.
      */
-    /*# YOUR CODE HERE */
+    private void lower(double amount){
+    }
 
     /** printCountry method:
      * Parameter text to print to screen
      * Prints at the base of the Flag
      */
-    /*# YOUR CODE HERE */
+    private void printCountry(String words){
+    }
 
 }
 
