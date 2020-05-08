@@ -60,7 +60,7 @@ public class FlagStaff{
 
     /** redraw method:
      * Draws the flagstaff (a line) and the flag (a blue rectangle)*/
-    private void redraw(){
+    public void redraw(){
     }
 
     /** raise method:
@@ -68,7 +68,7 @@ public class FlagStaff{
      * Changes the field, but does not let it go over the top of the flagstaff.
      * Does not redraw the flag.
      */
-    private void raise(double amount){
+    public void raise(double amount){
     }  
     
     /** lower method:
@@ -76,14 +76,7 @@ public class FlagStaff{
      * Changes the field, but does not let it go below the bottom of the flagstaff.
      * Does not redraw the flag.
      */
-    private void lower(double amount){
-    }
-
-    /** printCountry method:
-     * Parameter text to print to screen
-     * Prints at the base of the Flag
-     */
-    private void printCountry(String words){
+    public void lower(double amount){
     }
 
 }

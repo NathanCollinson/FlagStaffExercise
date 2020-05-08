@@ -20,7 +20,12 @@ import java.awt.Color;
 public class FlagStaffExercise{
 
     private static final double GROUND = 400;
-    private FlagStaff flag1 = new FlagStaff(110, GROUND); 
+    private static final int STAFF = 110;
+    private FlagStaff flag1 = new FlagStaff(STAFF, GROUND);
+    private static final double MIN = 1.0;
+    private static final double MAX = 49.0;
+    private double amount = 1.0;
+    private String lastCountry = " ";
 
     /** 
      * Makes two FlagStaff objects and makes the flags go up and down.
@@ -71,19 +76,33 @@ public class FlagStaffExercise{
 
     /** doRaise method:
      * raise the flag*/
-    /*# YOUR CODE HERE */
+    private void doRaise() {
+        flag1.raise(amount);
+    } 
     
     /** doLower method:
      * lower the flag*/
-    /*# YOUR CODE HERE */     
+    private void doLower() {
+        flag1.lower(amount);
+    }    
         
     /** setAmount method:
      * sets the amount to raise or lower flag by*/
-    /*# YOUR CODE HERE */     
+    private void setAmount(double amt) {
+        amount = amt;
+    }    
     
     /** printCountry method:
-     * print the country the user entered in textfield*/
-    /*# YOUR CODE HERE */ 
+     * Parameter words to print to screen
+     * Prints at the base of the Flag
+     */
+    private void printCountry(String words){
+        UI.setColor(new Color(255, 255, 255)); // white
+        UI.drawString(lastCountry, STAFF, GROUND + 24); // clear last string
+        UI.setColor(new Color(0, 0, 0)); // black
+        UI.drawString(words, 110, GROUND + 24); // new string
+        lastCountry = words; // update last string
+    }
     
     // Main
     /** Create a new BallGame object and setup the interface */
@@ -94,10 +113,10 @@ public class FlagStaffExercise{
         
         // Add buttons, textfield, slider
         UI.addButton("Raise", fse::doRaise);
-        UI.addButton("Lower", fse::dLower);
-        UI.addSlider("Amount", 1.0, 49.0, fse::setAmount);
+        UI.addButton("Lower", fse::doLower);
+        UI.addSlider("Amount", MIN, MAX, fse::setAmount);
         UI.addTextField("Country", fse::printCountry);
-        UI.addButton("Quit", UI::quit );        
+        UI.addButton("Quit", UI::quit );
     }
 
 }
