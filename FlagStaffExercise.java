@@ -93,7 +93,10 @@ public class FlagStaffExercise{
         UI.addButton("FlagStaff", fse::doFlagStaff );
         
         // Add buttons, textfield, slider
-        /*# YOUR CODE HERE */
+        UI.addButton("Raise", fse::doRaise);
+        UI.addButton("Lower", fse::dLower);
+        UI.addSlider("Amount", 1.0, 49.0, fse::setAmount);
+        UI.addTextField("Country", fse::printCountry);
         UI.addButton("Quit", UI::quit );        
     }
 
