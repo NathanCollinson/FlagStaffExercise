@@ -3,9 +3,11 @@
 // You may not distribute it in any other way without permission.
 
 /* Exercise for Onslow College 13DTC
- * Name:
- * Email:
- * Date:
+ * Name: Takumi G, Nathan C, Jamie T (didn't do anything)
+ * Email: Nathan.Collinson@student.onslow.school.nz,
+ * Takumi.Grainger@student.onslow.school.nz,
+ * Jamie.Truman@student.onslow.school.nz
+ * Date: 12/05/2020
  */
 import ecs100.*;
 import java.awt.Color;
@@ -50,7 +52,7 @@ public class FlagStaff{
     
 
     /** Constructor:
-     * Parameters: the position of the base of the flag staff
+     * @param the position of the base of the flag staff
      * Initialises the fields, but does not draw the flag.
      */
     public FlagStaff(double x, double base){
@@ -71,26 +73,26 @@ public class FlagStaff{
     }
 
     /** raise method:
-     * Parameter:  amount to raise the flag
+     * @param  amount to raise the flag
      * Changes the field, but does not let it go over the top of the flagstaff.
-     * Does not redraw the flag.
+     * Redraws the flag.
      */
     public void raise(double amount){
         erase();
-        if (this.flagYPosition-flagHeight-amount > 100){
+        if (this.flagYPosition-flagHeight-amount >= 100){
             this.flagYPosition = this.flagYPosition-amount;
         }
         this.redraw();
     }  
     
     /** lower method:
-     * Parameter:  amount to lower the flag
+     * @param  amount to lower the flag
      * Changes the field, but does not let it go below the bottom of the flagstaff.
-     * Does not redraw the flag.
+     * Redraws the flag.
      */
     public void lower(double amount){
         erase();
-        if (this.flagYPosition + amount < this.flagStaffBase){
+        if (this.flagYPosition + amount <= this.flagStaffBase){
             this.flagYPosition = this.flagYPosition+amount;
         }
         this.redraw();

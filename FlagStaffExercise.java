@@ -3,9 +3,11 @@
 // You may not distribute it in any other way without permission.
 
 /* Exercise for Onslow College 13DTC
- * Name:
- * Email:
- * Date:
+ * Name: Takumi G, Nathan C, Jamie T (didn't do anything)
+ * Email: Nathan.Collinson@student.onslow.school.nz,
+ * Takumi.Grainger@student.onslow.school.nz,
+ * Jamie.Truman@student.onslow.school.nz
+ * Date: 12/05/2020
  */
 
 import ecs100.*;
@@ -21,10 +23,10 @@ public class FlagStaffExercise{
 
     private static final double GROUND = 400;
     private static final int STAFF = 110;
-    private FlagStaff flag1 = new FlagStaff(STAFF, GROUND);
-    private static final double MIN = 1.0;
-    private static final double MAX = 49.0;
-    private double amount = 1.0;
+    private FlagStaff flag1 = new FlagStaff(STAFF, GROUND-1); // offset so it's flush to the ground
+    private static final double MIN = 1;
+    private static final double MAX = 50;
+    private double amount = 25.0;
     private String lastCountry = " ";
 
     /** 
@@ -32,8 +34,7 @@ public class FlagStaffExercise{
      */
     public void doFlagStaff(){
         this.clear();
-
-        this.drawGround();
+        
         flag1.redraw();
         UI.sleep(500);
 
@@ -64,14 +65,14 @@ public class FlagStaffExercise{
         }
     }
 
-    /** Draw the ground */
     public void drawGround(){
-        UI.setColor(new Color(120, 80, 0));   // dark brown,
+        UI.setColor(new Color(120, 80, 0));   // dark brown
         UI.fillRect(0,GROUND,600,10);  
     }
 
     public void clear(){
         UI.clearPanes();
+        this.drawGround();
     }
 
     /** doRaise method:
@@ -87,13 +88,13 @@ public class FlagStaffExercise{
     }    
         
     /** setAmount method:
-     * sets the amount to raise or lower flag by*/
+     * @param the amount to raise or lower flag by*/
     private void setAmount(double amt) {
         amount = amt;
     }    
     
     /** printCountry method:
-     * Parameter words to print to screen
+     * @param words to print to screen
      * Prints at the base of the Flag
      */
     private void printCountry(String words){
@@ -104,10 +105,10 @@ public class FlagStaffExercise{
         lastCountry = words; // update last string
     }
     
-    // Main
-    /** Create a new BallGame object and setup the interface */
+    /** Create a new FlagStaff object and setup the interface */
     public static void main(String[] args){
         FlagStaffExercise fse = new FlagStaffExercise();
+        fse.drawGround();
         UI.addButton("Clear", fse::clear );
         UI.addButton("FlagStaff", fse::doFlagStaff );
         
