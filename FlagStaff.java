@@ -46,7 +46,7 @@ public class FlagStaff{
     //Flag Fields
     private double flagHeight = 30;
     private double flagWidth = 30;
-    
+    private double flagYPosition;
     
 
     /** Constructor:
@@ -56,11 +56,18 @@ public class FlagStaff{
     public FlagStaff(double x, double base){
         this.flagStaffXPosition = x;
         this.flagStaffBase = base;
+        this.flagYPosition = flagStaffBase;
     }
 
     /** redraw method:
      * Draws the flagstaff (a line) and the flag (a blue rectangle)*/
-    private void redraw(){
+    public void redraw(){
+        erase();
+        UI.setColor(Color.black);
+        UI.drawLine(this.flagStaffXPosition, this.flagStaffBase, this.flagStaffXPosition, this.flagStaffBase-FLAGSTAFF_HEIGHT);
+        UI.setColor(Color.blue);
+        UI.fillRect(this.flagStaffXPosition, this.flagYPosition-flagHeight, this.flagWidth, this.flagHeight);
+        UI.sleep(500);
     }
 
     /** raise method:
@@ -68,7 +75,12 @@ public class FlagStaff{
      * Changes the field, but does not let it go over the top of the flagstaff.
      * Does not redraw the flag.
      */
-    private void raise(double amount){
+    public void raise(double amount){
+        erase();
+        if (this.flagYPosition-flagHeight-amount > 100){
+            this.flagYPosition = this.flagYPosition-amount;
+        }
+        this.redraw();
     }  
     
     /** lower method:
@@ -76,15 +88,19 @@ public class FlagStaff{
      * Changes the field, but does not let it go below the bottom of the flagstaff.
      * Does not redraw the flag.
      */
-    private void lower(double amount){
+    public void lower(double amount){
+        erase();
+        if (this.flagYPosition + amount < this.flagStaffBase){
+            this.flagYPosition = this.flagYPosition+amount;
+        }
+        this.redraw();
     }
-
-    /** printCountry method:
-     * Parameter text to print to screen
-     * Prints at the base of the Flag
+    
+    /**
+     * Erases the flag so that it can be drawn again
      */
-    private void printCountry(String words){
-    }
-
+    private void erase(){
+        UI.eraseRect(this.flagStaffXPosition, this.flagYPosition-flagHeight, this.flagWidth, this.flagHeight);
+    }   
 }
 
